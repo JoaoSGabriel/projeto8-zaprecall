@@ -1,16 +1,10 @@
-import InitialScreen from "./InitialScreen"
+//import InitialScreen from "./InitialScreen"
+import GameScrenn from "./GameScreen";
 
 export default function App () {
-    //const [dominy, setDominy] = React.useState("return (<InitialScrenn />);")
-
-    // function initRecall () {
-    //     setDominy("return (<GameScrenn />);")
-    // }
-
-    const dominy = <InitialScreen />
     return (
         <div>
-            {dominy}
+            <GameScrenn />
         </div>
     );
 }

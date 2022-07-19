@@ -1,7 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Recursive:wght@400;500;600;700;800;900&display=swap');
 
-.initial-Screen {
+.initial-Screen,
+.game-Screen {
     width: 375px;
     height: 667px;
     background-color: #FB6B6B;
@@ -33,10 +34,53 @@
     border-radius: 5px;
     border: none;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
     text-align: center;
     font-family: 'Recursive';
     font-size: 18px;
     font-weight: 400;
     line-height: 21.6px;
     color: #D70900;
+}
+
+.banner {
+    display: flex;
+    font-family: 'Righteous';
+    font-size: 36px;
+    font-weight: 400;
+    line-height: 44.7px;
+    color:#FFFFFF;
+    margin: 0 0 53px 0;
+}
+.banner img {
+    width: 52px;
+    height: 60px;
+    margin: 0 20px 0 0;
+}
+
+.question {
+    width: 300px;
+    height: 65px;
+    border-radius: 5px;
+    background-color: #FFFFFF;
+    box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.15);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 0 22px 0 15px;
+    margin: 0 0 25px 0;
+}
+
+.question ion-icon {
+    width: 20px;
+    height: 23px;
+    color: #333333;
+}
+.question p {
+    font-family: 'Recursive';
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 19.2px;
+    color: #333333;
 }
