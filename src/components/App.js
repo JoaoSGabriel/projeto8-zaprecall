@@ -3,7 +3,7 @@ import GameScrenn from "./GameScreen";
 
 export default function App () {
     return (
-        <div>
+        <div className="screen">
             <GameScrenn />
         </div>
     );
