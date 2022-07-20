@@ -19,6 +19,19 @@ function FlashCard (props) {
         setFrontScreen('front-Face rotate-Front');
     }
 
+    function recall (text) {
+        setFlashQuestion('question')
+        setFLashRecall('open-Question hidden');
+
+        if (text === 'red') {
+            console.log('Marcou vermelho')
+        } else if (text === 'yellow') {
+            console.log('Marcou amarelo')
+        } else if (text === 'green') {
+            console.log('Marcou verde')
+        }
+    }
+
     return (
         <>
             <div onClick={viewQuestion} className={flashQuestion}>
@@ -33,9 +46,9 @@ function FlashCard (props) {
                 <div className={backScreen}>
                     <p>{answer_Recall}</p>
                     <div>
-                        <button>Não<br/>lembrei</button>
-                        <button>Quase não lembrei</button>
-                        <button>Zap!</button>
+                        <button onClick={() => recall('red')}>Não<br/>lembrei</button>
+                        <button onClick={() => recall('yellow')}>Quase não lembrei</button>
+                        <button onClick={() => recall('green')}>Zap!</button>
                     </div>
                 </div>
             </div>
