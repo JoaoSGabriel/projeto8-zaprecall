@@ -1,54 +1,41 @@
 import React from "react";
 
 export default function FlashCard (props) {
-    const {question_Recall, answer_Recall, number} = props;
+    const {question_Recall, answer_Recall, number, redRecall, yellowRecall, greenRecall} = props
 
-    const [flashQuestion, setFlashQuestion] = React.useState('question');
-    const [flashRecall, setFLashRecall] = React.useState('open-Question hidden');
+    const [flash_Question, setFlash_Question] = React.useState('question');
+    const [flash_Recall, setFLash_Recall] = React.useState('open-Question hidden');
 
     function viewQuestion () {
-        setFlashQuestion('question hidden');
-        setFLashRecall('open-Question');
+        setFlash_Question('question hidden');
+        setFLash_Recall('open-Question');
     }
-    
-    const [backScreen, setBackScreen] = React.useState('back-Face');
-    const [frontScreen, setFrontScreen] = React.useState('front-Face');
+
+    const [back_Screen, setBack_Screen] = React.useState('back-Face');
+    const [front_Screen, setFront_Screen] = React.useState('front-Face');
 
     function viewAnswer () {
-        setBackScreen('back-Face rotate-Back');
-        setFrontScreen('front-Face rotate-Front');
+        setBack_Screen('back-Face rotate-Back');
+        setFront_Screen('front-Face rotate-Front');
     }
 
-    function recall (text) {
-        setFlashQuestion('question')
-        setFLashRecall('open-Question hidden');
-
-        if (text === 'red') {
-            console.log('Marcou vermelho')
-        } else if (text === 'yellow') {
-            console.log('Marcou amarelo')
-        } else if (text === 'green') {
-            console.log('Marcou verde')
-        }
-    }
-    
     return (
         <>
-            <div onClick={viewQuestion} className={flashQuestion}>
+            <div onClick={viewQuestion} className={flash_Question}>
                 <p>Pergunta {number}</p>
                 <ion-icon name="play-outline"></ion-icon>
             </div>
-            <div className={flashRecall}>
-                <div className={frontScreen}>
+            <div className={flash_Recall}>
+                <div className={front_Screen}>
                     <p>{question_Recall}</p>
                     <img onClick={viewAnswer} src="./img/setinha.png" alt="answerView" />
                 </div>
-                <div className={backScreen}>
+                <div className={back_Screen}>
                     <p>{answer_Recall}</p>
                     <div>
-                        <button onClick={() => recall('red')}>Não<br/>lembrei</button>
-                        <button onClick={() => recall('yellow')}>Quase não lembrei</button>
-                        <button onClick={() => recall('green')}>Zap!</button>
+                        <button onClick={redRecall}>Não<br/>lembrei</button>
+                        <button onClick={yellowRecall}>Quase não lembrei</button>
+                        <button onClick={greenRecall}>Zap!</button>
                     </div>
                 </div>
             </div>

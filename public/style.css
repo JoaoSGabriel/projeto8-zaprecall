@@ -215,6 +215,10 @@
     color: #333333;
 }
 
+.baseboard div:nth-child(2) {
+    font-size: 23px;
+}
+
 .hidden {
     display: none;
 }
