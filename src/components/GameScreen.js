@@ -45,7 +45,7 @@ export default function GameScrenn (){
         setAnswered_Questions(answered_Questions + 1);
         lastMessage ();
     }
-
+    
     const [final_Message, setFinalMessage] = React.useState('');
     function lastMessage () {
         while (answered_Questions < 3) {
