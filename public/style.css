@@ -1,6 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Recursive:wght@400;500;600;700;800;900&display=swap');
 
+.screen {
+    height: 100vw;
+    background-color: #E5E5E5;
+}
+
 .initial-Screen {
     width: 375px;
     height: 667px;

@@ -1,11 +1,10 @@
-//import InitialScreen from "./InitialScreen"
-import GameScrenn from "./GameScreen";
+import InitialScreen from "./InitialScreen"
 
 export default function App () {
 
     return (
         <div className="screen">
-            <GameScrenn />
+            <InitialScreen />
         </div>
     );
 }
