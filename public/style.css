@@ -56,6 +56,7 @@
 
 .banner {
     display: flex;
+    align-items: center;
     font-family: 'Righteous';
     font-size: 36px;
     font-weight: 400;
@@ -195,7 +196,7 @@
 
 .baseboard {
     width: 375px;
-    height: 70px;
+    min-height: 70px;
     background-color: #FFFFFF;
     box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.05);
     display: flex;
@@ -207,15 +208,42 @@
     right: 0;
 }
 
+.final-Message div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Recursive';
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 21.6px;
+    color: #333333;
+    margin: 16px 0 14px 0;
+}
+
+.final-Message img {
+    width: 23px;
+    margin: 0 12px 0 0;
+}
+
+.final-Message p {
+    font-family: 'Recursive';
+    text-align: center;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 21.6px;
+    color: #333333;
+    margin: 0 0 14px 0;
+}
+
 .questions-Complete {
     font-family: 'Recursive';
     font-size: 16px;
-    font-weight: 700;
+    font-weight: 400;
     line-height: 21.6px;
     color: #333333;
 }
 
-.baseboard div:nth-child(2) {
+.answer-Icon {
     font-size: 23px;
 }
 

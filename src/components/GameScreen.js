@@ -9,21 +9,54 @@ const deckCard = [
 
 export default function GameScrenn (){
     const [answer_Icon, setAnswer_Icon] = React.useState([]);
-    const [resolve_Questions, setResolve_Questions] = React.useState(0)
+    const [answered_Questions, setAnswered_Questions] = React.useState(0);
+    const [wrong_Question, setWrong_Question] = React.useState(0);
 
     function redRecall () {
         setAnswer_Icon([...answer_Icon, <ion-icon style={{color: "#FF3030"}} name="close-circle"></ion-icon>]);
-        setResolve_Questions(resolve_Questions + 1)
+        setAnswered_Questions(answered_Questions + 1);
+        setWrong_Question(1);
+        lastMessage ();
     }
 
     function yellowRecall () {
         setAnswer_Icon([...answer_Icon, <ion-icon style={{color: "#FF922E"}} name="help-circle"></ion-icon>]);
-        setResolve_Questions(resolve_Questions + 1)
+        setAnswered_Questions(answered_Questions + 1);
+        lastMessage ();
     }
 
     function greenRecall () {
         setAnswer_Icon([...answer_Icon, <ion-icon style={{color: "#2FBE34"}} name="checkmark-circle"></ion-icon>]);
-        setResolve_Questions(resolve_Questions + 1)
+        setAnswered_Questions(answered_Questions + 1);
+        lastMessage ();
+    }
+
+    const [final_Message, setFinalMessage] = React.useState('');
+    function lastMessage () {
+        while (answered_Questions < 3) {
+            return;
+        }
+        if (wrong_Question > 0) {
+            setFinalMessage(
+                <div className="final-Message">
+                    <div>
+                        <img src="./img/sad.png" alt="final-Message"/>
+                        Puts
+                    </div>
+                    <p>Ainda faltam alguns...<br/>Mas não desanime!</p>
+                </div>
+            );
+        } else {
+            setFinalMessage (
+                <div className="final-Message">
+                    <div>
+                        <img src="./img/party.png" alt="final-Message"/>
+                        Parabéns!
+                    </div>
+                    <p>Você não esqueceu de<br/>nenhum flashCard</p>
+                </div>
+            );
+        }
     }
 
     return (
@@ -33,11 +66,12 @@ export default function GameScrenn (){
             <p>ZapRecall</p>
         </div>
         <div className="deck-Questions">
-            {deckCard.map((item, index) => <FlashCard key={index} number={index} question_Recall={item.question_Recall} answer_Recall={item.answer_Recall} redRecall={redRecall} yellowRecall={yellowRecall} greenRecall={greenRecall}/>)}
+            {deckCard.map((item, index) => <FlashCard key={index} number={index+1} question_Recall={item.question_Recall} answer_Recall={item.answer_Recall} redRecall={redRecall} yellowRecall={yellowRecall} greenRecall={greenRecall}/>)}
         </div>
         <div className="baseboard">
-            <div className="questions-Complete">{resolve_Questions}/4 CONCLUÍDOS</div>
-            <div>{answer_Icon}</div>
+            {final_Message}
+            <div className="questions-Complete">{answered_Questions}/4 CONCLUÍDOS</div>
+            <div className="answer-Icon">{answer_Icon}</div>
         </div>
     </div>);
 }
