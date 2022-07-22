@@ -70,10 +70,6 @@
     margin: 0 20px 0 0;
 }
 
-.answered-Question p{
-    text-decoration: line-through;
-}
-
 .question {
     width: 300px;
     height: 65px;
@@ -100,6 +96,22 @@
     font-weight: 700;
     line-height: 19.2px;
     color: #333333;
+}
+
+.risk p{
+    text-decoration: line-through;
+}
+
+.red p{
+    color: #FF3030;
+}
+
+.yellow p{
+    color: #FF922E;
+}
+
+.green p{
+    color: #2FBE34;
 }
 
 .open-Question {
