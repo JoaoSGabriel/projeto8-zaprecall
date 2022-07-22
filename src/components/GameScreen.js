@@ -5,7 +5,22 @@ const deckCard = [
     {question_Recall: 'O que é JSX?', answer_Recall: 'Uma extensão de linguagem do JavaScript'},
     {question_Recall: 'O React é __', answer_Recall: 'uma biblioteca JavaScript para construção de interfaces'},
     {question_Recall: 'Componentes devem iniciar com __', answer_Recall: 'letra maiúscula'},
-    {question_Recall: 'Podemos colocar __ dentro do JSX', answer_Recall: 'expressões'}]
+    {question_Recall: 'Podemos colocar __ dentro do JSX', answer_Recall: 'expressões'},
+    {question_Recall: 'O ReactDOM nos ajuda __ ', answer_Recall: 'interagindo com a DOM para colocar componentes React na mesma'},
+    {question_Recall: 'Usamos o npm para __', answer_Recall: 'gerenciar os pacotes necessários e suas dependências'},
+    {question_Recall: 'Usamos props para __', answer_Recall: 'passar diferentes informações para componentes '},
+    {question_Recall: 'Usamos estado (state) para __', answer_Recall: 'dizer para o React quais informações quando atualizadas devem renderizar a tela novamente'},]
+
+let vx = [];
+const game_Deck = [];
+let index = 0;
+let copy = 0
+while(copy < 4) {
+    index = parseInt(Math.random()* deckCard.length);
+    vx = deckCard.splice(index,1);
+    game_Deck.push(vx[0]);
+    copy = copy + 1;
+}
 
 export default function GameScrenn (){
     const [answer_Icon, setAnswer_Icon] = React.useState([]);
@@ -66,7 +81,7 @@ export default function GameScrenn (){
             <p>ZapRecall</p>
         </div>
         <div className="deck-Questions">
-            {deckCard.map((item, index) => <FlashCard key={index} number={index+1} question_Recall={item.question_Recall} answer_Recall={item.answer_Recall} redRecall={redRecall} yellowRecall={yellowRecall} greenRecall={greenRecall}/>)}
+            {game_Deck.map((item, index) => <FlashCard key={index} number={index+1} question_Recall={item.question_Recall} answer_Recall={item.answer_Recall} redRecall={redRecall} yellowRecall={yellowRecall} greenRecall={greenRecall}/>)}
         </div>
         <div className="baseboard">
             {final_Message}
