@@ -1,5 +1,8 @@
 import React from "react";
-import FlashCard from "./FlashCard"
+import FlashCard from "./FlashCard";
+import logo from "./assets/img/logo.png";
+import sadFace from "./assets/img/sad.png";
+import happyFace from "./assets/img/party.png";
 
 const deckCard = [
     {question_Recall: 'O que é JSX?', answer_Recall: 'Uma extensão de linguagem do JavaScript'},
@@ -55,7 +58,7 @@ export default function GameScrenn (){
             setFinalMessage(
                 <div className="final-Message">
                     <div>
-                        <img src="./img/sad.png" alt="final-Message"/>
+                        <img src={sadFace} alt="final-Message"/>
                         Puts
                     </div>
                     <p>Ainda faltam alguns...<br/>Mas não desanime!</p>
@@ -65,7 +68,7 @@ export default function GameScrenn (){
             setFinalMessage (
                 <div className="final-Message">
                     <div>
-                        <img src="./img/party.png" alt="final-Message"/>
+                        <img src={happyFace} alt="final-Message"/>
                         Parabéns!
                     </div>
                     <p>Você não esqueceu de<br/>nenhum flashCard</p>
@@ -77,7 +80,7 @@ export default function GameScrenn (){
     return (
     <div className="game-Screen">
         <div className="banner">
-            <img src="./img/logo.png" alt="logo"/>
+            <img src={logo} alt="logo"/>
             <p>ZapRecall</p>
         </div>
         <div className="deck-Questions">

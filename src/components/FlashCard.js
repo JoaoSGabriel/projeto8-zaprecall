@@ -1,4 +1,5 @@
 import React from "react";
+import setinha from "./assets/img/setinha.png";
 
 export default function FlashCard (props) {
     const {question_Recall, answer_Recall, number, redRecall, yellowRecall, greenRecall} = props
@@ -20,6 +21,7 @@ export default function FlashCard (props) {
     }
 
     const [question_Icon, setQuestion_Icon] = React.useState(<ion-icon name="play-outline"></ion-icon>)
+    
     function hideFlashCard (text){
         setFLash_Recall('open-Question hidden');
         if (text === 'red') {
@@ -46,7 +48,7 @@ export default function FlashCard (props) {
             <div className={flash_Recall}>
                 <div className={front_Screen}>
                     <p>{question_Recall}</p>
-                    <img onClick={viewAnswer} src="./img/setinha.png" alt="answerView" />
+                    <img onClick={viewAnswer} src={setinha} alt="answerView" />
                 </div>
                 <div className={back_Screen}>
                     <p>{answer_Recall}</p>

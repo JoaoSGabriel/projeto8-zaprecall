@@ -1,10 +1,11 @@
 import React from "react";
 import GameScrenn from "./GameScreen";
+import logo from "./assets/img/logo.png"
 
 export default function InitialScreen () {
     const [dominy, setDominy] = React.useState(
     <div className='initial-Screen'>
-        <img src='./img/logo.png' alt='logo'/>
+        <img src={logo} alt='logo'/>
         <div>ZapRecall</div>
         <button onClick={initRecall}>Iniciar Recall!</button>
     </div>);
