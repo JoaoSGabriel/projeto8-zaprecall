@@ -20,30 +20,44 @@ export default function FlashCard (props) {
         setFront_Screen('front-Face rotate-Front');
     }
 
-    const [question_Icon, setQuestion_Icon] = React.useState(<ion-icon name="play-outline"></ion-icon>)
+    const [flash_Result, setFlash_Result] = React.useState(<div></div>);
     
     function hideFlashCard (text){
         setFLash_Recall('open-Question hidden');
+        setFlash_Question('question hidden');
         if (text === 'red') {
             redRecall();
-            setFlash_Question('question risk red');
-            setQuestion_Icon(<ion-icon style={{color: "#FF3030"}} name="close-circle"></ion-icon>);
+            setFlash_Result(
+                <div className="question risk red">
+                    <p>Pergunta {number}</p>
+                    <ion-icon style={{color: "#FF3030"}} name="close-circle"></ion-icon>
+                </div>
+            );
         } else if (text === 'yellow') {
             yellowRecall();
-            setFlash_Question('question risk yellow');
-            setQuestion_Icon(<ion-icon style={{color: "#FF922E"}} name="help-circle"></ion-icon>);
+            setFlash_Result(
+                <div className="question risk yellow">
+                    <p>Pergunta {number}</p>
+                    <ion-icon style={{color: "#FF922E"}} name="help-circle"></ion-icon>
+                </div>
+            );
         } else if (text === 'green'){
             greenRecall();
-            setFlash_Question('question risk green');
-            setQuestion_Icon(<ion-icon style={{color: "#2FBE34"}} name="checkmark-circle"></ion-icon>);
+            setFlash_Result(
+                <div className="question risk green">
+                    <p>Pergunta {number}</p>
+                    <ion-icon style={{color: "#2FBE34"}} name="checkmark-circle"></ion-icon>
+                </div>
+            );
         }
     }
 
     return (
         <>  
+            {flash_Result}
             <div onClick={viewQuestion} className={flash_Question}>
                 <p>Pergunta {number}</p>
-                {question_Icon}
+                <ion-icon name="play-outline"></ion-icon>
             </div>
             <div className={flash_Recall}>
                 <div className={front_Screen}>
