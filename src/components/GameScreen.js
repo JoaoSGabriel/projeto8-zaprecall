@@ -34,27 +34,28 @@ export default function GameScrenn (){
         setAnswer_Icon([...answer_Icon, <ion-icon style={{color: "#FF3030"}} name="close-circle"></ion-icon>]);
         setAnswered_Questions(answered_Questions + 1);
         setWrong_Question(1);
-        lastMessage ();
+        lastMessage ('red');
     }
 
     function yellowRecall () {
         setAnswer_Icon([...answer_Icon, <ion-icon style={{color: "#FF922E"}} name="help-circle"></ion-icon>]);
         setAnswered_Questions(answered_Questions + 1);
-        lastMessage ();
+        lastMessage ('yellow');
     }
 
     function greenRecall () {
         setAnswer_Icon([...answer_Icon, <ion-icon style={{color: "#2FBE34"}} name="checkmark-circle"></ion-icon>]);
         setAnswered_Questions(answered_Questions + 1);
-        lastMessage ();
+        lastMessage ('green');
     }
     
     const [final_Message, setFinalMessage] = React.useState('');
-    function lastMessage () {
+    function lastMessage (text) {
         while (answered_Questions < 3) {
             return;
         }
-        if (wrong_Question > 0) {
+
+        if (wrong_Question > 0 || text === 'red') {
             setFinalMessage(
                 <div className="final-Message">
                     <div>
