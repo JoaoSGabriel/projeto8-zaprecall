@@ -238,7 +238,7 @@
     font-weight: 700;
     line-height: 21.6px;
     color: #333333;
-    margin: 16px 0 14px 0;
+    margin: 26px 0 14px 0;
 }
 
 .final-Message img {
@@ -266,6 +266,21 @@
 
 .answer-Icon {
     font-size: 23px;
+}
+
+.baseboard button {
+    width: 167px;
+    height: 32px;
+    border-radius: 5px;
+    border: none;
+    margin: 23px 0 21px 0;
+    background-color: #FB6B6B;
+    font-family: 'Recursive';
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 16.8px;
+    color: #FFFFFF;
+    cursor: pointer;
 }
 
 .hidden {

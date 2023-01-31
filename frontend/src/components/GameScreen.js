@@ -4,28 +4,7 @@ import logo from "./assets/img/logo.png";
 import sadFace from "./assets/img/sad.png";
 import happyFace from "./assets/img/party.png";
 
-const deckCard = [
-    {question_Recall: 'O que é JSX?', answer_Recall: 'Uma extensão de linguagem do JavaScript'},
-    {question_Recall: 'O React é __', answer_Recall: 'uma biblioteca JavaScript para construção de interfaces'},
-    {question_Recall: 'Componentes devem iniciar com __', answer_Recall: 'letra maiúscula'},
-    {question_Recall: 'Podemos colocar __ dentro do JSX', answer_Recall: 'expressões'},
-    {question_Recall: 'O ReactDOM nos ajuda __ ', answer_Recall: 'interagindo com a DOM para colocar componentes React na mesma'},
-    {question_Recall: 'Usamos o npm para __', answer_Recall: 'gerenciar os pacotes necessários e suas dependências'},
-    {question_Recall: 'Usamos props para __', answer_Recall: 'passar diferentes informações para componentes '},
-    {question_Recall: 'Usamos estado (state) para __', answer_Recall: 'dizer para o React quais informações quando atualizadas devem renderizar a tela novamente'},]
-
-let vx = [];
-const game_Deck = [];
-let index = 0;
-let copy = 0
-while(copy < 4) {
-    index = parseInt(Math.random()* deckCard.length);
-    vx = deckCard.splice(index,1);
-    game_Deck.push(vx[0]);
-    copy = copy + 1;
-}
-
-export default function GameScrenn (){
+export default function GameScrenn ({restartRecall, game_Deck}){
     const [answer_Icon, setAnswer_Icon] = React.useState([]);
     const [answered_Questions, setAnswered_Questions] = React.useState(0);
     const [wrong_Question, setWrong_Question] = React.useState(0);
@@ -49,6 +28,7 @@ export default function GameScrenn (){
         lastMessage ('green');
     }
     
+    const [restart_Button, setRestartButton] = React.useState('');
     const [final_Message, setFinalMessage] = React.useState('');
     function lastMessage (text) {
         while (answered_Questions < 3) {
@@ -76,6 +56,9 @@ export default function GameScrenn (){
                 </div>
             );
         }
+        setRestartButton(
+            <button onClick={restartRecall}>REINICIAR RECALL</button>
+        );
     }
 
     return (
@@ -91,6 +74,7 @@ export default function GameScrenn (){
             {final_Message}
             <div className="questions-Complete">{answered_Questions}/4 CONCLUÍDOS</div>
             <div className="answer-Icon">{answer_Icon}</div>
+            {restart_Button}
         </div>
     </div>);
 }
